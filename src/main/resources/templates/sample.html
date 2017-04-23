@@ -9,9 +9,14 @@
 	<p th:text="${message}"></p>
 	<p>using Thymeleaf</p>
 	<form method="POST" th:action:="@{/}">
+		<div th:if="${personForm != null}" th:object="${personForm}">
+			<ul>
+				<li th:each="e : ${#fields.detailedErrors()}" th:text="${e}"></li>
+			</ul>
+		</div>
 		<label for="name">your name: </label><input type="text" name="name" />
-		<label for="age">your age: </label><input type="text" name="age" />
-		<input type="submit" value="submit" />
+		<label for="age">your age: </label><input type="text" name="age" /> <input
+			type="submit" value="submit" />
 	</form>
 </body>
 </html>
