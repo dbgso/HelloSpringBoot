@@ -8,6 +8,11 @@
 <body>
 	<p th:text="${message}"></p>
 	<p>using Thymeleaf</p>
+
+	<ul>
+		<li th:each="e : ${persons}" th:text="${e}"/>
+	</ul>
+
 	<form method="POST" th:action:="@{/}">
 		<div th:if="${personForm != null}" th:object="${personForm}">
 			<ul>
